@@ -1,38 +1,147 @@
-.App {
-  text-align: center;
+/* *{
+  border: dotted red;
+} */
+.purple-text {
+  color: purple;
+  margin-left: -570px;
+  font-size:;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+table, th, td {
+  border: 2px solid;
+  background-color: rgb(174, 174, 174);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-title{
+  text-align: left;
+  font-weight: bolder;
+  margin-left: 150px;
+  
+}
+.main-title1{
+  text-align: left;
+  color: #61dafb;
+
+  margin-left: 180px;
+
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.link-style{
+text-decoration: none ;
+color: white;
+
+}
+
+.home-btn{
+  background-color: gray;
+  border: solid black;
+}
+.home-btn :hover {
+  background-color: #af814c; /* Green */
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+.add-song-btn {
+  background-color: gray;
+  border: solid black;
+
+
+}
+.add-song-btn :hover {
+  background-color: #af814c; /* Green */
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.tagline{
+  float: left;
+
+}
+
+.header-display-all{
+  width:auto; 
+  
+  display: flex;
+  justify-content: space-around;
+  background-color: orange;
+  border: solid blue;
+  margin-bottom: 40px;
+  box-shadow: inset -6px -6px 12px rgba(0, 0, 0, 0.8), inset 6px 6px 12px rgba(255, 255, 255, 0.4);
+
+
+}
+.header-display-add{
+
+display: flex;
+flex-direction: column;
+width: 500px;
+}
+
+.main-form-container{
+
+  background-color: black;
+  height: 1000px;
+
+}
+
+
+.row{
+
+}
+.col-8{
+
+  margin-left: 250px;
+
+
+}
+
+.adopt-btn{
+  background-color: red;
+}
+
+.submit-input{
+  background-color: aqua;
+}
+
+.form-header{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
+  
+}
+.form-container {
+  width: 500px;
+  margin-left: 500px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  
+  
 }
 
-.App-link {
-  color: #61dafb;
+.upper-text{
+
+  margin-left: -880px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.add-song-form{
+
+  border: solid navy;
+  width:200px;
+  height: 500x;
+  display: inline-block;
+  margin-left: 150px;
+}
+.edit-form {
+  width:200px;
+  height: 500x;
+  display: inline-block;
+}
+
+.bottom-details{
+  border: solid blue;
 }
