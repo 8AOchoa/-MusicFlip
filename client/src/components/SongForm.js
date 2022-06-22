@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import FileUpload from "../components/FileUpload";
 
 
 
-const PetForm = ()=> {
+const SongForm = ()=> {
     
 
 
@@ -19,7 +20,7 @@ const PetForm = ()=> {
   const submitHandler = (e) => {
       e.preventDefault();
 
-      axios.post("http://localhost:8000/api/author", {
+      axios.post("http://localhost:8000/api/song", {
           name,
           type,
           description,
@@ -32,12 +33,15 @@ const PetForm = ()=> {
         setName("");
         setType("");
         setDescription("");
-        navigate("/playerapp");
+        navigate("/");
       }) 
       .catch((err)=>{
         console.log(err);
         
     })
+
+
+
   }
 
     
@@ -89,19 +93,34 @@ const PetForm = ()=> {
                     type="text"
                 />
             </div>
+                    <h4>
+                       <FileUpload/>
+
+
+                        
+                    </h4>
+               
+
+         
+            
 
             <br />
-            {/* Could also be a button element. Try it! */}
+            
             <input className="submit-input" type="submit" value="Add Song" />
             
         </form>
+
+       
+        
+
+      
         </div>
     </div>
 );
 };
 
 
-export default PetForm;
+export default SongForm;
 
 
 

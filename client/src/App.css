@@ -7,6 +7,10 @@
   font-size:;
 }
 
+.Dropzone{
+ width: 100px;
+}
+
 table, th, td {
   border: 2px solid;
   background-color: rgb(174, 174, 174);
@@ -118,6 +122,7 @@ width: 500px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  
   
   
 }

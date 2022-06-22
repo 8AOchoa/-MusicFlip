@@ -7,32 +7,32 @@ import { Link } from "react-router-dom";
 
 
 const DisplayAll = () => {
-  const [allAuthors, setAllAuthors] = useState([]);
+  const [allsongs, setAllsongs] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/author")
+      .get("http://localhost:8000/api/song")
       .then((response) => {
         console.log(response.data);
-        setAllAuthors(response.data);
+        setAllsongs(response.data);
       })
       .catch((err) => {
         console.log(err.response);
       });
-  }, []);
+  }, [])
 
-  const handleDeleteAuthor = (idFromBelow) => {
+  const handleDeletesong = (idFromBelow) => {
     axios
-      .delete(`http://localhost:8000/api/author/${idFromBelow}`)
+      .delete(`http://localhost:8000/api/song/${idFromBelow}`)
       .then((response) => {
-        console.log("success deleting author");
+        console.log("success deleting song");
         console.log(response);
-        const filteredAuthors = allAuthors.filter((author) => {
-          return author._id !== idFromBelow;
+        const filteredsongs = allsongs.filter((song) => {
+          return song._id !== idFromBelow;
         });
-        setAllAuthors(filteredAuthors);
+        setAllsongs(filteredsongs);
       })
       .catch((err) => {
-        console.log("error deleting author", err.response);
+        console.log("error deleting song", err.response);
       });
   };
   
@@ -59,19 +59,19 @@ const DisplayAll = () => {
               </tr>
             </thead>
             <tbody>
-              {allAuthors.map((author, index) => {
+              {allsongs.map((song, index) => {
                 return (
-                  <tr key={author._id}>
-                    <td>{author.name}</td>
-                    <td>{author.type}</td>
+                  <tr key={song._id}>
+                    <td>{song.name}</td>
+                    <td>{song.type}</td>
                     <td>
-                      <Link to = {`/details/${author._id}`}><button className="btn btn-primary">Details</button></Link>
-                      <Link to={`/edit/${author._id}`}>
+                      <Link to = {`/details/${song._id}`}><button className="btn btn-primary">Details</button></Link>
+                      <Link to={`/edit/${song._id}`}>
                         <button className="btn btn-primary">Edit</button>
                       </Link>
 
                       <button
-                        onClick={() => handleDeleteAuthor(author._id)}
+                        onClick={() => handleDeletesong(song._id)}
                         className="btn btn-danger"
                       >
                         Delete

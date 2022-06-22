@@ -2,27 +2,27 @@ import React, {useEffect, useState} from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const DisplayPetDetails= (props)=> {
+const DisplaysongDetails= (props)=> {
 
     const {id} = useParams();
 
-    const[petName, setPetName] = useState({});
+    const[songName, setsongName] = useState({});
     const[type, setType] = useState({});
     const[description, setDescription] = useState({});
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/author/${id}`)
+        axios.get(`http://localhost:8000/api/song/${id}`)
         .then((res)=>{
             console.log(res);
             console.log(res.data);
-            setPetName(res.data);
+            setsongName(res.data);
         })
         .catch((err)=> console.log(err))
     },[id])
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/author/${id}`)
+        axios.get(`http://localhost:8000/api/song/${id}`)
         .then((res)=>{
             console.log(res);
             console.log(res.data);
@@ -31,7 +31,7 @@ const DisplayPetDetails= (props)=> {
         .catch((err)=> console.log(err))
     },[id])
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/author/${id}`)
+        axios.get(`http://localhost:8000/api/song/${id}`)
         .then((res)=>{
             console.log(res);
             console.log(res.data);
@@ -42,7 +42,7 @@ const DisplayPetDetails= (props)=> {
 
 
     const deleteFilter = () => {
-        axios.delete(`http://localhost:8000/api/author/${id}`)
+        axios.delete(`http://localhost:8000/api/song/${id}`)
         .then((res)=> {
             console.log(res.data);
             navigate("/")
@@ -54,13 +54,13 @@ const DisplayPetDetails= (props)=> {
         
         <div className="top-details">
         <Link to= {"/"} className="home-btn">Go Home</Link>
-        <h1 class= "main-title">Pet Shelter</h1>   
+        <h1 class= "main-title">Song Details</h1>   
         <div/>
         <div className= "bottom-details">
-        <h2>Details About: {petName.name}</h2>
-        <p>Pet Type: {type.type}</p>
-        <p>Description: {description.description}</p>
-        <button onClick ={deleteFilter}>Adopt</button>
+        <h2>Details About: {songName.name}</h2>
+        <p>Artist:  {type.type}</p>
+        <p>Genre: {description.description}</p>
+        <button onClick ={deleteFilter}>Delete</button>
         </div>      
       
     </div>
@@ -71,4 +71,4 @@ const DisplayPetDetails= (props)=> {
 
 }
 
-export default DisplayPetDetails;
+export default DisplaysongDetails;

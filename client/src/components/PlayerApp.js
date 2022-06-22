@@ -1,11 +1,34 @@
 import {useState, useEffect} from 'react';
+import axios from 'axios';
 import Player from './Player';
 import { Link, useParams } from "react-router-dom";
 
+
 function PlayerApp() {
+
+  const { id } = useParams();
+  const [songName, setSongName] = useState("");
+  const [artistName, setArtistName] = useState("");
+
+  console.log(id);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/author/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        setSongName(response.data.name);
+        setArtistName(response.data.type);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  }, []);
+
+
+
   const [songs] = useState([
     {
-      title: "Song1",
+      title: "Song 1",
       artist: "Artist 1",
       img_src: "./images/song-1.jpg",
       src: "./music/Song 1 TBK.mp3"
@@ -32,6 +55,7 @@ function PlayerApp() {
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(0);
+  
 
   useEffect(() => {
     setNextSongIndex(() => {
@@ -43,10 +67,18 @@ function PlayerApp() {
     });
   }, [currentSongIndex]);
 
+  
+
+
+
   return (
 
 
+
+
     <div className="PlayerApp">
+
+
 
       <div className="PlayerApp-Nav">
 
@@ -62,6 +94,7 @@ function PlayerApp() {
         nextSongIndex={nextSongIndex} 
         songs={songs}
       />
+
 
 
     </div>

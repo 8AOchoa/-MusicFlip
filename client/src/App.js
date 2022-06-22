@@ -1,11 +1,13 @@
 import "./App.css";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DisplayAll from "./components/DisplayAll";
-import PetForm from "./components/PetForm";
-import EditPet from "./components/EditPet";
-import DisplayPetDetails from "./components/DisplayPetDetails";
+import SongForm from "./components/SongForm";
+import EditTrack from "./components/EditTrack";
+import DisplaysongDetails from "./components/DisplaysongDetails";
 import Player from "./components/Player";
 import PlayerApp from "./components/PlayerApp";
+import FileUpload from "./components/FileUpload";
 
 
 function App() {
@@ -17,9 +19,9 @@ function App() {
         <Routes>
           <Route path="/" element={<PlayerApp />} />
           <Route path="/tracks" element={<DisplayAll />} />
-          <Route path="/details/:id" element={<DisplayPetDetails />} />
-          <Route path="/new" element={<PetForm/>} />
-          <Route path="/edit/:id" element={<EditPet />} />
+          <Route path="/details/:id" element={<DisplaysongDetails />} />
+          <Route path="/new" element={<SongForm/>} />
+          <Route path="/edit/:id" element={<EditTrack />} />
         </Routes>
       </BrowserRouter>
 
