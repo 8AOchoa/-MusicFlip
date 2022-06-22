@@ -1,9 +1,9 @@
-const Author = require("../models/authors.model");
+const Song = require("../models/songs.model");
 
-const createNewAuthor = (req, res) => {
-  Author.create(req.body)
-    .then((newAuthor) => {
-      res.json({ newAuthor });
+const createNewSong = (req, res) => {
+  Song.create(req.body)
+    .then((newSong) => {
+      res.json({ newSong });
     })
     .catch((err) => {
       res.status(400).json({ err });
@@ -28,33 +28,33 @@ const createNewDescription= (req, res) => {
     });
 };
 
-const getAllAuthors = (req, res) => {
-  Author.find()
-    .then((allAuthors) => {
-      res.json(allAuthors);
+const getAllSongs = (req, res) => {
+  Song.find()
+    .then((allSongs) => {
+      res.json(allSongs);
     })
     .catch((err) => {
       res.status(400).json({ err });
     });
 };
 
-const getOneAuthor = (req, res) => {
-  Author.findOne({ _id: req.params.id })
-    .then((queriedAuthor) => {
-      res.json(queriedAuthor);
+const getOneSong = (req, res) => {
+  Song.findOne({ _id: req.params.id })
+    .then((queriedSong) => {
+      res.json(queriedSong);
     })
     .catch((err) => {
       res.status(400).json({ err });
     });
 };
 
-const updateAuthor = (req, res) => {
-  Author.findOneAndUpdate({ _id: req.params.id }, req.body, {
+const updateSong = (req, res) => {
+  Song.findOneAndUpdate({ _id: req.params.id }, req.body, {
     new: true,
     runValidators: true,
   })
-    .then((updatedAuthor) => {
-      res.json({ updatedAuthor });
+    .then((updatedSong) => {
+      res.json({ updatedSong });
     })
     .catch((err) => {
       res.status(400).json({ err });
@@ -62,7 +62,7 @@ const updateAuthor = (req, res) => {
 };
 
 const deleteExistingUser = (req, res) => {
-  Author.deleteOne({ _id: req.params.id })
+  Song.deleteOne({ _id: req.params.id })
     .then((deletedResponse) => {
       res.json({ deletedResponse });
     })
@@ -72,10 +72,10 @@ const deleteExistingUser = (req, res) => {
 };
 
 module.exports = {
-  createNewAuthor,
+  createNewSong,
   createNewType,
-  getOneAuthor,
-  getAllAuthors,
-  updateAuthor,
+  getOneSong,
+  getAllSongs,
+  updateSong,
   deleteExistingUser,
 };

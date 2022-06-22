@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const AuthorsSchema = {
+const SongsSchema = {
     name: {
         type: String,
         required: [true, "name is required"],
@@ -13,7 +13,7 @@ const AuthorsSchema = {
     },
     description: {
         type: String,
-        required: [true, "type is required"],
+        required: [true, "description is required"],
         minLength: [3, "Type must be at least 3 characters"],
     },
     // skill1: {
@@ -33,4 +33,4 @@ const AuthorsSchema = {
     // },
 };
 
-module.exports = mongoose.model("Author", AuthorsSchema);
+module.exports = mongoose.model("Song", SongsSchema);
